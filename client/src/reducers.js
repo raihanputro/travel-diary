@@ -6,6 +6,7 @@ import languageReducer from '@containers/Language/reducer';
 import registerReducer, {storedKeyRegister} from '@pages/Register/reducer';
 import loginReducer, {storedKeyLogin} from '@pages/Login/reducer';
 import createPostReducer, {storedKeyCreatePost} from '@pages/CreatePost/reducer';
+import profilReducer, {storedKeyProfile} from '@pages/Profile/reducer';
 
 import { mapWithPersistor } from './persistence';
 
@@ -15,6 +16,7 @@ const storedReducers = {
   register: { reducer: registerReducer, whitelist: storedKeyRegister},
   login: { reducer: loginReducer, whitelist: storedKeyLogin},
   createPost: { reducer: createPostReducer, whitelist: storedKeyCreatePost},
+  profile: { reducer: profilReducer, whitelist: storedKeyProfile},
 };
 
 const temporaryReducers = {

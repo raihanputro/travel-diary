@@ -18,7 +18,7 @@ const Client = ({ login, children }) => {
 };
 
 Client.propTypes = {
-  login: PropTypes.object,
+  login: PropTypes.bool,
   children: PropTypes.element,
 };
 

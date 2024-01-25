@@ -15,6 +15,7 @@ import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
 
 import { selectLogin } from '@containers/Client/selectors';
+import { setLogin, setToken } from '@containers/Client/actions';
 import LogoIcon from '../../../public/logoIconWhite.png';
 import logoIconLogin from '../../../public/logoIcon.png';
 import PhuketBg from '../../../public/Phuket1.png';
@@ -22,7 +23,7 @@ import PhuketBg from '../../../public/Phuket1.png';
 import classes from './style.module.scss';
 import { createStructuredSelector } from 'reselect';
 
-const Navbar = ({ title, login }) => {
+const Navbar = ({ login }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -68,11 +69,18 @@ const Navbar = ({ title, login }) => {
         open={Boolean(anchorElUser)}
         onClose={handleCloseUserMenu}
       >
-        {settings.map((setting) => (
-          <MenuItem key={setting} onClick={handleCloseUserMenu}>
-            <Typography textAlign="center">{setting}</Typography>
+          <MenuItem onClick={() => {handleCloseUserMenu, navigate('/profile')}}>
+            <Typography textAlign="center">Profile</Typography>
           </MenuItem>
-        ))}
+          <MenuItem onClick={() => {handleCloseUserMenu, navigate('/create')}}>
+            <Typography textAlign="center">New Journey</Typography>
+          </MenuItem>
+          <MenuItem onClick={() => {handleCloseUserMenu, navigate('/bookmark')}}>
+            <Typography textAlign="center">Bookmark</Typography>
+          </MenuItem>
+          <MenuItem onClick={() => { handleCloseUserMenu, dispatch(setLogin(false)), dispatch(setToken(null)) }}>
+            <Typography textAlign="center">Logout</Typography>
+          </MenuItem>
       </Menu>
     </Box>
   );
@@ -103,7 +111,6 @@ const Navbar = ({ title, login }) => {
 };
 
 Navbar.propTypes = {
-  title: PropTypes.string,
   login: PropTypes.object,
 };
 

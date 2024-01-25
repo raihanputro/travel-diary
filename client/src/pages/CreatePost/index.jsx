@@ -11,29 +11,20 @@ import { setCreatePost } from './actions';
 import { selectToken } from '@containers/Client/selectors';
 import classes from './style.module.scss';
 
-const CreatePost = ({ token }) => {
+const CreatePost = () => {
   const ref = useRef();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const[ data, setData ] = useState({
-    imageUrl: '',
-    title: '',
-    shortDesc: '',
-    description: ''
-  });
-
+  const[img, setImg] = useState('');
+  const[title, setTitle] = useState('');
+  const[shortDesc, setShortDesc] = useState('');
+  const[description, setDescription] = useState('');
 
   const onSubmit = () => {
-    const formDataSend = new FormData();
-    formDataSend.append("imageUrl", data.imageUrl);
-    formDataSend.append("title", data.title);
-    formDataSend.append("shortDesc", data.shortDesc);
-    formDataSend.append("description", data.description);
-    dispatch(setCreatePost(token, formDataSend)),
+    dispatch(setCreatePost({ imageUrl: img, title: title, shortDesc: shortDesc, description: description })),
     navigate('/')
   };
-
 
   return (
     <Box className={classes.container}>
@@ -44,20 +35,20 @@ const CreatePost = ({ token }) => {
         <Box className={classes.inputContainer}>
           <Box className={classes.inputImgContainer}>
             <Button variant="outlined" className={classes.buttonUpload} onClick={() => ref.current.click()}>Upload</Button>
-            <input ref={ref} type='file' hidden accept='image/*'/>
+            <input ref={ref} value={img} onChange={(e) => setImg(e.target.value)} type='file' hidden accept='image/*'/>
           </Box>
         </Box>
         <Box className={classes.inputContainer}>
           <FormLabel className={classes.label}>Title</FormLabel>
-          <TextField sx={{ input: { color: 'black' } }} className={classes.inputTitle} variant="outlined" type='text' value={data.title} onChange={(e) => setData(prevVal => ({ ...prevVal, title: e.target.value }))} required={true}/>
+          <TextField sx={{ input: { color: 'black' } }} className={classes.inputTitle} variant="outlined" type='text' value={title} onChange={(e) => setTitle(e.target.value)} required={true}/>
         </Box>
         <Box className={classes.inputContainer}>
           <FormLabel className={classes.label}>Short Description</FormLabel>
-          <TextField sx={{ input: { color: 'black' } }} className={classes.inputShortDescTitle} variant="outlined" type='text' value={data.shortDesc} onChange={(e) => setData({ shortDesc: e.target.value })} required={true}/>
+          <TextField sx={{ input: { color: 'black' } }} className={classes.inputShortDescTitle} variant="outlined" type='text' value={shortDesc} onChange={(e) => setShortDesc(e.target.value)} required={true}/>
         </Box>
         <Box className={classes.inputContainer}>
           <FormLabel className={classes.label}>Description</FormLabel>
-          <ReactQuill theme='snow' value={data.description} onChange={(value) => setData({ description: value})} className={classes.inputDesc}/>
+          <ReactQuill theme='snow' value={description} onChange={(value) => setDescription(value)} className={classes.inputDesc}/>
         </Box>
       </Box>
       <Box className={classes.buttonContainer}>
@@ -67,8 +58,8 @@ const CreatePost = ({ token }) => {
   )
 }
 
-const mapStateToProps = createStructuredSelector({
-  token: selectToken
-})
+// const mapStateToProps = createStructuredSelector({
+//   token: selectToken
+// })
 
-export default connect(mapStateToProps)(CreatePost);
+export default CreatePost;
