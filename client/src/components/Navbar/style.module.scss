@@ -1,0 +1,71 @@
+@import '@styles/base';
+
+.navbarContainer {
+  height: 85px;
+  justify-content: center;
+  padding-left: 30px;
+  padding-right: 30px;
+
+  .buttonContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+    .buttonLogin {
+      color: #FFF;
+      font-size: 14px;
+      font-weight: 700;
+      width: 100px;
+      height: 30px;
+      flex-shrink: 0;
+      background-color: transparent;
+      border: 1px solid #FFF;
+      border-radius: 5px;
+    }
+
+    .buttonRegister {
+      color: #FFF;
+      font-size: 14px;
+      font-weight: 700;
+      width: 100px;
+      height: 30px;
+      flex-shrink: 0;
+      background-color: #2E86DE;
+      border-radius: 5px;
+    }
+  }
+}
+
+.jumbotronContainer {
+  position: relative;
+  width: 100%;
+
+  img {
+    width: 100%;
+  }
+
+  .descJumbotronContainer {
+    position: absolute;
+    top: 20%;
+
+    h1 {
+      padding-left: 40px;
+      padding-right: 30px;
+      color: #FFF;
+      font-size: 64px;
+      font-style: italic;
+      font-weight: 100;
+      line-height: 112.2%; 
+      letter-spacing: -1.92px;
+    }
+
+    p {
+      padding-left: 40px;
+      color: #FFF;
+      font-size: 24px;
+      font-style: italic;
+      font-weight: 100;
+      line-height: normal;
+    }
+  }
+}

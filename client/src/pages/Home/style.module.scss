@@ -1,0 +1,62 @@
+@import '@styles/base';
+
+.container {
+    margin-top: 3%;
+    margin-left: 49px;
+    padding-right: 30px;
+    margin-bottom: 2%;
+
+    .pageTitle {
+        color: black;
+        font-size: 48px;
+        font-style: normal;
+        font-weight: 900;
+        line-height: normal;
+    }
+
+    .searchContainer {
+        display: flex;
+        flex-direction: row;
+        margin-top: 2%;
+        padding-left: 2%;
+
+        .inputSearch {
+            color: black;
+            width: 1182px;
+            border-radius: 5px 0px 0px 5px;
+            border: none;
+            background-color: #FFF;
+            height: 50px;
+
+            &::placeholder {
+                color: #AFAFAF;
+                padding-left: 2%;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+            }
+        }
+
+        .buttonSearch {
+            color: white;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: normal;
+            border-radius: 0px 5px 5px 0px;
+            background: #2E86DE;
+            width: 136px;
+            height: 50px;
+            flex-shrink: 0;
+            text-transform: capitalize;
+        }
+    }
+
+    .cardContainer {
+        margin-top: 40px;
+        display: grid;
+        gap: 40px;
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

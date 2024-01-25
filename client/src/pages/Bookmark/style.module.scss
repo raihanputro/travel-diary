@@ -1,0 +1,24 @@
+@import '@styles/base';
+
+.container {
+    margin-top: 3%;
+    margin-left: 49px;
+    padding-right: 30px;
+    margin-bottom: 2%;
+
+    .pageTitle {
+        color: black;
+        font-size: 48px;
+        font-style: normal;
+        font-weight: 900;
+        line-height: normal;
+        margin-bottom: 141px;
+    }
+
+    .cardContainer {
+        margin-top: 40px;
+        display: grid;
+        gap: 40px;
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

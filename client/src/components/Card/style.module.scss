@@ -1,0 +1,37 @@
+@import '@styles/base';
+
+.cardContainer {
+    width: 300px;
+    height: 362px;
+    flex-shrink: 0;
+    border-radius: 5px;
+    background-color: #FFF;
+    box-shadow: 0px 0px 15px 0px rgba(82, 82, 82, 0.18);
+
+    .titleCard {
+        color: #000;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        margin-top: 22px;
+    }
+
+    .dateCard {
+        color: #BFBFBF;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin-top: 3px;
+        margin-bottom: 13px;
+    }
+
+    .shortDescCard {
+        color: #6C6C6C;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+}
